@@ -9,12 +9,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // راه‌اندازی Hibernate
+        // Setting up Hibernate
         SessionFactory sessionFactory = new Configuration()
-                .configure("hibernate.cfg.xml") // فایل پیکربندی Hibernate
+                .configure("hibernate.cfg.xml") // Hibernate configuration file
                 .buildSessionFactory();
 
-        // ایجاد ریپازیتوری و کنترلر
+        // Creating the repository and controller
         TodoRepository todoRepository = new TodoRepository(sessionFactory);
         TodoController todoController = new TodoController(todoRepository);
         Scanner scanner = new Scanner(System.in);
@@ -44,7 +44,7 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Exiting the application. Goodbye!");
-                    sessionFactory.close(); // بستن SessionFactory
+                    sessionFactory.close(); // Closing the SessionFactory
                     return; // Exit the loop and terminate the program
                 default:
                     System.out.println("Invalid option. Please try again.");

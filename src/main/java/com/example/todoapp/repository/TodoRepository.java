@@ -15,10 +15,10 @@ public class TodoRepository {
         this.sessionFactory = sessionFactory;
     }
 
-    // دریافت تمامی وظایف با استفاده از پرس‌وجو SQL خام
+    // Retrieve all todos using a raw SQL query
     public List<Todo> getAllTodos() {
         try (Session session = sessionFactory.openSession()) {
-            String sql = "SELECT * FROM todos"; // پرس‌وجو SQL
+            String sql = "SELECT * FROM todos"; // SQL query
             return session.createNativeQuery(sql, Todo.class).getResultList();
         }
     }
